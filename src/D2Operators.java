@@ -109,8 +109,54 @@ public class D2Operators {
         System.out.println(big == bigD);
         System.out.println(small1 > small2);
         System.out.println(small1 >= small2);
+        System.out.println(small1 != small2);
+        System.out.println(small1 <= small2);
+        System.out.println(small2 < bigD);
 
 
+        int temperature = 38;
+        int age = 20;
+
+        // 체온은 37 이하
+        boolean notSick = temperature <= 37;
+        // 나이는 20살 이상
+        boolean isOfAge = age >= 20;
+        // 입장 가능한가?
+        boolean canEnter = notSick && isOfAge; // and 연산자
+        System.out.println(canEnter);
+
+
+
+        // 일요일 이거나 공휴일이다,
+        // 일요일 이다.
+        boolean sunday = false;
+        // 공휴일 이다.
+        boolean holiday = false;
+        // 쉬는 날이다.
+        boolean canRest = sunday || holiday; // or 연산자 : 둘다 false 일떄 false
+        System.out.println(canRest);
+
+        // 아니다.
+        int number = 10;
+        boolean isNegative = number < 10; // !=
+        boolean isNotNegative = !isNegative;
+        System.out.println(isNegative);
+        System.out.println(isNotNegative);
+
+
+        // 비트 연산자
+        // 11 = 0000 1011
+        // 5 = 0000 0101
+
+        // 비트연산 AND (& - 하나만 씀)
+        System.out.println(11 & 5);     // 1
+        // 비트연산 OR (|)
+        System.out.println(11 | 5);     // 15
+        // 비트연산 XOR (^)
+        System.out.println(11 ^ 5);     // 14
+        // 비트연산 NOT (~)
+        System.out.println(~11);        // -12
+        System.out.println(~5);         // -6
 
     }
 }
