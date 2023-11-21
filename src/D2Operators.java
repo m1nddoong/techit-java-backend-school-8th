@@ -67,6 +67,50 @@ public class D2Operators {
         System.out.println(10 + " + " + 10 + " = " + 20); // 문자열로 표현
         String formula = 10 + " + " + 10 + " = " + 20; // 문자열을 String 변수로 담아줄 수 있다.
 
+        char largeA = 'A';
+        char ten = 10;
+        System.out.println((char) (largeA + ten));
+
+        int count = 0;
+        count++;
+        System.out.println("현재 횟수는 : " + count);	// 1
+        count++;
+        System.out.println("현재 횟수는 : " + count);	// 2
+        count--;
+        System.out.println("현재 횟수는 : " + count);	// 1
+        ++count;
+        --count;
+        System.out.println("최종 : " + count);
+
+        count = 10;
+        System.out.println(++count);    // 11 (출력 전에 1 증가, 값 11)
+        System.out.println(count++);    // 11 (출력 후에 1 증가, 값 12)
+        System.out.println(--count);    // 11 (출력 전에 1 감소, 값 11)
+        System.out.println(count--);    // 11 (출력 후에 1 감소, 값 10)
+
+        int addTo = 1;
+        addTo += 10;     // 11
+        addTo *= addTo;  // 121
+
+        addTo /= 12;  // addTo = addTo / 12;
+        addTo %= 10;  // addTo = addTo % 10;
+        addTo -= 20;  // addTo = addTo - 20;
+        addTo *= -1;  // addTo = addTo * -1;
+
+        System.out.println(addTo);
+
+        // 비교 연산자
+        int small1 = 10;
+        int small2 = 10;
+        int big = 21;
+        double bigD = 21.0;
+        System.out.println(small1 == small2);
+        System.out.println(big == small1);
+        System.out.println(big == bigD);
+        System.out.println(small1 > small2);
+        System.out.println(small1 >= small2);
+
+
 
     }
 }
