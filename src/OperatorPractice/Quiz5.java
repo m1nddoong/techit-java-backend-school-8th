@@ -6,6 +6,9 @@ Scanner 이외의 변수를 한개만 선언하여
 A^2, A^4, A^8의 1의 자리를 순서대로 한줄씩 출력하시오.
  */
 
+
+// 입력 받는 단계에서는 범위지정을 하지 못한다. -> Scanner 단계에서는 어렵다.
+
 import java.util.Scanner;
 
 public class Quiz5 {

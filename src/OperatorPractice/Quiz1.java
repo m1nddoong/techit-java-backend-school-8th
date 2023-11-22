@@ -11,11 +11,9 @@ import java.util.Scanner;
 public class Quiz1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("승 : ");
+        System.out.print("승, 무승부, 패 입력 : ");
         int win  = scanner.nextInt();
-        System.out.print("무승부 : ");
         int draw  = scanner.nextInt();
-        System.out.print("패 : ");
         int lose = scanner.nextInt();
 
         double winRate = ((double) win / (win + lose));

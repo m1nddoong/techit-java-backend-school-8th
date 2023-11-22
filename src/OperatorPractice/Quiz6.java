@@ -15,7 +15,6 @@ public class Quiz6 {
         System.out.print("체온을 입력하세요 : ");
         double temperature = scanner.nextDouble();
         boolean result = temperature >= 38 || temperature <= 36;
-
         System.out.println("병원을 가야할지? " + result);
     }
 }
