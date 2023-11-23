@@ -7,25 +7,30 @@ package HControlStatement;
 한번만 거듭제곱해도 본래 숫자가 되면 결과는 1이다.
  */
 
+// for문 -> 정해진 횟수의 경우
+// while -> 정교하게 컨트롤 하고 싶거나, 그 외의 다른 조건
+
 import java.util.Scanner;
 
 public class H5ControlStatement {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("정수를 입력하시오 : ");
-        int num = scanner.nextInt(); // n = 2
-        int count = 0;
-        int power = num;
-        // 2^2 2^3 2^4 ...
+        // 1의 자리만 확인하면 되기 떄문에 바로 10을 나눠줌
+        int base = scanner.nextInt() % 10;
+        // 현재 얼마인지를 저장하기 위한 변수 (시작은 입력값)
+        int now  = base;
+        // 몇번 반복했는지 세기 위한 변수
+        int i = 0;
+        // 결과가 나올떄까지 반복한다.
         while (true) {
-            power *= num; // 거듭제곱 수행
-            count++;  // 횟수 증가
-            System.out.println(String.format("%d 번 거듭제곱 : %d", count, power));
-
-            // 거급제곱 결과 1의 자리 숫자가 원래 숫자와 일치
-            if (power % 10 == num) {
-                System.out.println("-----------------------------------");
-                System.out.println(count + " 번 거듭제곱 시 원래의 숫자의 1의 자리랑 일치");
+            // 거듭제곱을 한다
+            now *= base;
+            // 1의 자리만 남긴다.
+            now %= 10;
+            // 횟수를 증가시킨다.
+            i++;
+            // 졸료조건 확인
+            if (now == base) {
                 break;
             }
         }

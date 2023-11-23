@@ -14,19 +14,18 @@ import java.util.Scanner;
 public class H3ControlStatement {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // 정수 2개 입력 받기
-        System.out.println("정수 두개를 입력하시오.");
-        System.out.print("a : ");
-        int a = scanner.nextInt();
-        System.out.print("b : ");
-        int b = scanner.nextInt();
+        // 첫번째 정수는 단위
+        int unit = scanner.nextInt();
+        // 두번째 정수는 길이
+        int length = scanner.nextInt();
 
-        if (a == 0) {
-            System.out.println(String.format("%d cm", b));
-        } else if (a == 1) {
-            System.out.println(String.format("%.2f inch", (double) b * 2.54));
-        } else {
-            System.out.println("잘못된 입력입니다.");
+        // cm -> inch : / 2.54
+        if (unit == 0) {
+            System.out.println(String.format("%.2finch", length / 2.54));
+        }
+        // inch -> cm : * 2.54
+        else {
+            System.out.println(String.format("%.2fcm", length * 2.54));
         }
     }
 }
