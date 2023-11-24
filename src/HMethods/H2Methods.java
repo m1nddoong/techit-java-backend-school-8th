@@ -10,15 +10,22 @@ n 시간 후 12시까지 표기된 시계에서
 import java.util.Scanner;
 
 public class H2Methods {
-
-    public static void clockPoint(int n) {
-        int current = 7;
-        System.out.println((current + n) % 12);
+    public static int whatNum (int n) {
+        // 입력 범위 초과
+        if (n < 0 && n > 127) {
+            return -1;
+        }
+        int now = 7;
+        // n 시간이 지난다.
+        now += n;
+        // 12 일때 0 이라는 값이 나오기 때문에
+        // 3항 연산자를 사용하여 해결
+        return now % 12 == 0 ? 12 : now % 12;
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
-        clockPoint(n);
+        System.out.println(whatNum(n));
     }
 }

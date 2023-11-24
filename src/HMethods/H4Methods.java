@@ -11,41 +11,53 @@ int[]을 인자로 받아,
  */
 
 public class H4Methods {
-    public static int maxWhere(int[] arr) {
-        int max = arr[0];
+    public static int maxDiff(int[] numbers) {
+        int maxIdx = maxWhere(numbers);
+        int minIdx = minWhere(numbers);
+        return numbers[maxIdx] - numbers[minIdx];
+    }
+
+    public static int maxWhere(int[] numbers) {
+        // numbers.length > 0 라는 검증이 있으면 더 좋음
+        // 초기 비교 대상
+        int max = numbers[0];
+        // 위치
         int index = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (max < arr[i]) {
-                max = arr[i];
+        for (int i = 0; i < numbers.length; i++) {
+            // 더 큰 애 발견
+            if (numbers[i] > max) {
+                // 정보 갱신
+                max = numbers[i];
                 index = i;
             }
         }
+        // 반복이 끝나면 index 가 최댓값의 위치
         return index;
     }
 
-    public static int minWhere(int[] arr) {
-        int min = arr[0];
+    // [단축키] shift + F6 : 변수 한번에 바꿔주기 (max -> min)
+    public static int minWhere(int[] numbers) {
+        // numbers.length > 0 라는 검증이 있으면 더 좋음
+        // 초기 비교 대상
+        int min = numbers[0];
+        // 위치
         int index = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (min > arr[i]) {
-                min = arr[i];
+        for (int i = 0; i < numbers.length; i++) {
+            // 더 작은애 발견
+            if (numbers[i] < min) {
+                // 정보 갱신
+                min = numbers[i];
                 index = i;
             }
         }
+        // 반복이 끝나면 index 가 최댓값의 위치
         return index;
-    }
-
-    public static int maxDiff(int[] arr, int maxIndex, int minIndex) {
-        int diff = arr[maxIndex] - arr[minIndex];
-        return diff;
     }
 
     public static void main(String[] args) {
-        int[] arr = {3, 6, 7, 5, 1, 9};
-        int maxIndex = maxWhere(arr);
-        System.out.println(maxIndex);
-        int minIndex = minWhere(arr);
-        System.out.println(minIndex);
-        System.out.println(maxDiff(arr, maxIndex, minIndex));
+        int[] numbers = {1, 2, 3, 4, 5, 6};
+        System.out.println(maxWhere(numbers));
+        System.out.println(minWhere(numbers));
+        System.out.println(maxDiff(numbers));
     }
 }

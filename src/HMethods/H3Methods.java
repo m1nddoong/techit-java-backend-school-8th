@@ -11,29 +11,27 @@ import java.util.Scanner;
 
 public class H3Methods {
 
-    public static void Calc(int first, String operator, int second) {
+    public static int calculate(char operator, int a, int b) {
         switch (operator) {
-            case "+":
-                System.out.println(String.format("%d + %d = %d", first, second, first+second));
-                break;
-            case "-":
-                System.out.println(String.format("%d - %d = %d", first, second, first-second));
-                break;
-            case "*":
-                System.out.println(String.format("%d * %d = %d", first, second, first*second));
-                break;
-            case "/":
-                System.out.println(String.format("%d / %d = %d", first, second, first / second));
-                break;
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                return a / b;
+            // default 를 쓰거나
         }
+        // 리턴을 하거나
+        return -1;
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int first = scanner.nextInt();
-        String operator = scanner.next();
-        int second = scanner.nextInt();
-
-        Calc(first, operator, second);
+        System.out.println(calculate('+', 1, 2));
+        System.out.println(calculate('-', 2, 3));
+        System.out.println(calculate('*', 5, 2));
+        System.out.println(calculate('/', 10, 2));
+        System.out.println(calculate('\n', 10, 2));
     }
 }

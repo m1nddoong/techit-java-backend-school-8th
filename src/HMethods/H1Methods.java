@@ -13,22 +13,21 @@ import java.util.Scanner;
 
 public class H1Methods {
 
-    public static void whetherIs(int dust) {
-        if (0 <= dust && dust <= 30) {
-            System.out.println("좋음");
-        } else if (31 <= dust && dust <= 80) {
-            System.out.println("보통");
-        } else if (81 <= dust && dust <= 150) {
-            System.out.println("나쁨");
+    public static String dustForecast(int dust) {
+        if (dust < 31) {
+            return "좋음";
+        } else if (dust <= 80) {
+            return "보통";
+        } else if (dust <= 150) {
+            return "나쁨";
         } else {
-            System.out.println("매우 나쁨");
+            return "매우 나쁨";
         }
     }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int dust = scanner.nextInt();
-        whetherIs(dust);
-
+        System.out.println(dustForecast(dust));
     }
 }

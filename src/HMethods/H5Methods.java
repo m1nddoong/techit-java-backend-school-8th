@@ -9,24 +9,32 @@ int[]을 두개 받아,
 import java.util.Scanner;
 
 public class H5Methods {
-    public static int[] concatArr(int[] arr1, int[] arr2) {
-        int[] newArr = new int[arr1.length + arr2.length];
-        for (int i = 0; i < newArr.length; i++) {
-            if (0 <= i && i <= 4) {
-                newArr[i] = arr1[i];
-            } else {
-                newArr[i] = arr2[i - 5];
-            }
+    public static int[] concatArray(int[] front, int[] back) {
+        int[] result = new int[front.length + back.length];
+        // 1. 외부에 result 원소 순서용 변수 만들어서 for 두번
+        int idx = 0;
+        for (int i = 0; i < front.length; i++) {
+            result[idx] = front[i];
+            idx++;
         }
-        return newArr;
+        for (int i = 0; i < back.length; i++) {
+            result[idx] = back[i];
+            idx++;
+        }
+        return result;
     }
+    // 2. fori 를 두번 돌되, 두번째(back) 할때는 위치를 + front.length
+    // 3. 그냥 한번에 하겠다. 둘중에 더 긴 원소의 개수만큼 반복하는 반복문에서
+    // 더 짧은 배열을 넘어서는건 if문으로 제외하고
+    // 한번에 result[i] 와 result[front.length + i] 할당
 
     public static void main(String[] args) {
-        int[] arr1 = {0, 1, 2, 3, 4};
-        int[] arr2 = {5, 6, 7, 8 ,9};
-        for (int num : concatArr(arr1, arr2)) {
-            System.out.print(num + " ");
-        }
+        int[] front = {1, 2, 3};
+        int[] back = {4, 5, 6};
+        int[] result = concatArray(front, back);
 
+        for (int num : result) {
+            System.out.println(num);
+        }
     }
 }

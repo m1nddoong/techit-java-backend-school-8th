@@ -19,25 +19,20 @@ n개의 원반을 총 몇번 옮겨야 하는지를 구하는 메서드를 작�
 import java.util.Scanner;
 
 public class H6Methods {
+    // 직전에 옮겼던 원반들을 가운데로 옮기고, 추가된 가장 큰 원반을 끝으로 옮기고
+    // 직전의 원반들을 다시 끝으로 옮긴다.
+    // f(1) = 1 // 하나만 옮기는 것이기 때문에 1
+    // f(2) = f(1) * 2 + 1 = 3
+    // f(n) = f(n-1) + 1 + f(n-1) = f(n-1) * 2 + 1
+    public static int hanoi(int n) {
+        // n < 1 = -1
+        if (n < 1) return 0;
+        // f(1) == 1
+        if (n == 1) return 1;
+        else return  hanoi(n-1) * 2 + 1;
+    }
+
     public static void main(String[] args) {
-        // 임의의 탑 세개
-        // 이거 약간 정렬 문제 일지도 ?
-        // 버블 정렬 일지도?
-        // 한번에 하나만 옮길 수 있으니까?
-        // 우선 차례대로 하노이 탑의 원반을 받아서 배열에 차례대로 넣어보자
-        int[] towerOne = {4, 2};
-        int[] towerTwo = {5, 1};
-        int[] towerThree = {6, 3};
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println(hanoi(5));
     }
 }
